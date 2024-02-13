@@ -1,0 +1,71 @@
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+
+@Component({
+  selector: 'app-agrega-motivo',
+  templateUrl: './agrega-motivo.component.html',
+  styleUrls: ['./agrega-motivo.component.css']
+})
+export class AgregaMotivoComponent {
+
+  constructor(private router: Router, private http: HttpClient) { }
+
+  title = "basic-form";
+
+  _motivo: string;
+  _descripcion: string;
+
+  get motivo(): string {
+    return this._motivo;
+  }
+
+  set motivo(newMotivo: string) {
+    this._motivo = newMotivo;
+  }
+
+  get descripcion(): string {
+    return this._descripcion;
+  }
+
+  set descripcion(newDescripcion: string) {
+    this._descripcion = newDescripcion;
+  }
+
+  regresarAListado() {
+    this.router.navigate(['/listado']);
+    
+  }
+
+  agregarMotivo() {
+    
+    let myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    let raw = JSON.stringify({
+      "TituloMotivo": this._motivo,
+      "DescripcionMotivo": this._descripcion,
+      "PrioridadVisual": 2
+    });
+
+    let requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw
+    };
+
+    fetch("https://oxzappcpndev01.azurewebsites.net/api/Pedidos/crearMotivoDesabasto", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+      
+      this._motivo = '';
+      this._descripcion = '';
+  }
+
+  cerrar(){
+    location.reload();
+  }
+
+  
+}

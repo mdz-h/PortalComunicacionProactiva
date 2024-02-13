@@ -1,0 +1,21 @@
+.rojoOxxo{
+  background-color: #C40D15;
+  height: 40px;
+  width: auto;
+  color: white;
+}
+
+.hamburguesa{
+  position:absolute;
+  top: -20px;
+  left : 0px;
+  z-index: 1;
+  width: 400px;
+}
+
+.blanco{
+  color: white;
+  margin: 0 0 0 10px;
+}
+
+

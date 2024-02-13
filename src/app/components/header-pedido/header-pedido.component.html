@@ -1,0 +1,164 @@
+<div class="div-1">
+  <div class="container-fluid" class="bolded" style="padding: 10px 10px;">
+    <h1 class="text-center"><b>Resumen de Pedidos</b></h1>
+</div>
+
+
+</div>
+<div class="div-2">
+  <div id="Layer1" class="caja" style="height:400px; width: 1020PX; overflow-y: scroll; overflow-x:scroll;">
+    <table class="table text-center  table-responsive">
+      <thead>
+        
+        <tr class="color-oxxo">
+          <th class="letra-clara"></th>
+          <th class="letra-clara">Plaza Clave</th>
+          <th class="letra-clara">Plaza</th>
+          <th class="letra-clara">Distrito</th>
+          <th class="letra-clara">Tienda Cve</th>
+          <th class="letra-clara">Tienda</th>
+          <th class="letra-clara">Tsf No</th>
+          <th class="letra-clara">Fecha Creación</th>
+          <th class="letra-clara">Estatus</th>
+          <th class="letra-clara">Origen</th>
+          <th class="letra-clara">Destino</th>
+          <th class="letra-clara">Tipo Tsf</th>
+          <th class="letra-clara">Ext Ref No</th>
+          <th class="letra-clara">Líneas</th>
+          <th class="letra-clara">Cantidades</th>
+          <th class="letra-clara">Embarcadas</th>
+          <th class="letra-clara">Recibidas</th>
+          <th class="letra-clara">Eliminadas</th>
+          <th class="letra-clara">Motivos</th>
+        </tr>
+      </thead>
+     
+      <tbody class="tabla-m"> 
+       
+        <tr class="item" *ngFor="let item of data">
+          <td class=""><button type="button" class="btn btn-outline-secondary btn-oxxo" data-bs-toggle="modal"
+              data-bs-target="#modalBusquedaAvanzada" data-bs-whatever="@mdo"
+              id="{{item.tsfNo}}" (click)="consultarDetalle(item.tsfNo)">Detalle</button></td>
+          <td class="">{{item.plazaClave}}</td>
+          <td class="">{{item.plaza}}</td>
+          <td class="">{{item.distrito}}</td>
+          <td class="">{{item.tiendaCve}}</td>
+          <td class="">{{item.tienda}}</td>
+          <td class="">{{item.tsfNo}}</td>
+          <td class="">{{item.fechaCreacion}}</td>
+          <td class="">{{item.estatus}}</td>
+          <td class="">{{item.origen}}</td>
+          <td class="">{{item.destino}}</td>
+          <td class="">{{item.tipoTsf}}</td>
+          <td class="">{{item.extRefNo}}</td>
+          <td class="">{{item.lineas}}</td>
+          <td class="">{{item.cantidades}}</td>
+          <td class="">{{item.embarcadas}}</td>
+          <td class="">{{item.recibidas}}</td>
+          <td class="">{{item.eliminadas}}</td>
+          <td class="">{{item.motivo}}</td>
+        </tr>
+      </tbody>
+
+     
+    </table>
+  </div>
+  <div class="offset-11" style="margin-top: 25px;">
+    <button class="btn-cuadrado " (click)="regresarHome()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house"
+            viewBox="0 0 16 16">
+            <path
+                d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z" />
+        </svg>
+    </button>
+    <p class="text-center" style="margin-left: -50px;">Home</p>
+  </div>
+  <div class="errorAvisos" style="margin-top: -400px;margin-left: 400px;"></div>
+</div>
+
+<!--Modal Detalle de Pedido-->
+<div class="modal fade modal-xl" id="modalBusquedaAvanzada" tabindex="-1" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="text-center">
+          <svg style="color:rgb(75, 75, 185)" xmlns="http://www.w3.org/2000/svg" width="26" height="26"
+            fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+            <path
+              d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+          </svg>
+        </div>
+        <div class="container-fluid" style="background-color:#ffd562; width: 100%; height: 5px;"
+          data-bs-whatever="@mdo">
+        </div>
+        <div class="container-fluid" style="background-color:whitesmoke; width: 100%;">
+          <div class="" style="padding: 20px;">
+            <h4 class="text-center">Detalle de Pedido</h4>
+          </div>
+        </div>
+        <div id="Layer1" class="caja" style="height:330px; width:100%; overflow-y: scroll; overflow-x:scroll;">
+          <table class="table text-center table-responsive">
+            <thead>
+              <tr class="color-oxxo">
+                <th class="letra-clara">Plaza Cve</th>
+                <th class="letra-clara">Plaza</th>
+                <th class="letra-clara">Distrito</th>
+                <th class="letra-clara">Tienda Id</th>
+                <th class="letra-clara">Tienda Cve</th>
+                <th class="letra-clara">Tienda</th>
+                <th class="letra-clara">No Transferencia</th>
+                <th class="letra-clara">Fecha creación</th>
+                <th class="letra-clara">Estatus</th>
+                <th class="letra-clara">Origen</th>
+                <th class="letra-clara">Destino</th>
+                <th class="letra-clara">Tipo Tsf</th>
+                <th class="letra-clara">Supergrupo</th>
+                <th class="letra-clara">Categoria</th>
+                <th class="letra-clara">Articulo Id</th>
+                <th class="letra-clara">Articulo</th>
+                <th class="letra-clara">Cantidad generada</th>
+                <th class="letra-clara">Cantidad transferida</th>
+                <th class="letra-clara">Cantidad embarcada</th>
+                <th class="letra-clara">Cantidad recibida</th>
+                <th class="letra-clara">Cantidad faltante Abasto</th>
+                <th class="letra-clara">Motivo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!--<tr class="item" *ngFor="let item of encabezadosPedido">-->
+              <tr class="item" *ngFor="let item of encabezadosPedido">
+                <td class="">{{item.plazaCve}}</td>
+                <td class="">{{item.plaza}}</td>
+                <td class="">{{item.distrito}}</td>
+                <td class="">{{item.tiendaId}}</td>
+                <td class="">{{item.tiendaCve}}</td>
+                <td class="">{{item.tienda}}</td>
+                <td class="">{{item.noTransferencia}}</td>
+                <td class="">{{item.fechaCreacion}}</td>
+                <td class="">{{item.estatus}}</td>
+                <td class="">{{item.origen}}</td>
+                <td class="">{{item.destino}}</td>
+                <td class="">{{item.tipoTsf}}</td>
+                <td class="">{{item.superGrupo}}</td>
+                <td class="">{{item.categoria}}</td>
+                <td class="">{{item.articuloId}}</td>
+                <td class="">{{item.articulo}}</td>
+                <td class="">{{item.cantidadGenerada}}</td>
+                <td class="">{{item.cantidadTransferida}}</td>
+                <td class="">{{item.cantidadEmbarcada}}</td>
+                <td class="">{{item.cantidadRecibida}}</td>
+                <td class="">{{item.cantidadFaltanteAbasto}}</td>
+                <td class="">{{item.motivo}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="margin: 10px 0 0 0;">
+          <button class="btn btn-danger" data-bs-dismiss="modal">Regresar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

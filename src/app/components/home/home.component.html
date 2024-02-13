@@ -1,0 +1,34 @@
+
+<div class="div-2">
+<div class="btn-toolbar d-flex" role="toolbar" aria-label="Toolbar with button groups" 
+style="padding: 20px 0px 0px 20px;">
+    <div class="col-1" style="margin-top: 25px;" role="group" aria-label="First group">
+        <button class="btn-cuadrado " (click)="avisos()">
+            <mat-icon [ngStyle]="{'color':'7E7C7B','font-size.px':'27'}">volume_up</mat-icon>
+        </button>
+        <p class="text-center" style=" margin-top: 10px; margin:5px -20px 10px -5px;">Avisos</p>
+    </div>
+    
+    <div class="col-1" style="margin-top: 25px; margin-left:50px ;" role="group" aria-label="Second group">
+        <button class="btn-cuadrado " (click)="visibilidadAvisos()">
+            <mat-icon [ngStyle]="{'color':'7E7C7B','font-size.px':'27'}">featured_play_list</mat-icon>
+        </button>
+        <p class="text-center" style=" margin-top: 10px; margin:5px -20px 10px -5px;">Visibilidad<br> de pedidos</p>
+    </div>
+    <div class="col-1" style="margin-top: 25px; margin-left:50px ;" role="group" aria-label="Third group">
+        <button class="btn-cuadrado " (click)="listadoTipoSolicitud()">
+            <mat-icon [ngStyle]="{'color':'7E7C7B','font-size.px':'27'}">list</mat-icon>
+        </button>
+        <p class="text-center" style=" margin-top: 10px; margin:5px -20px 10px -5px;">Solicitud <br>de abasto</p>
+    </div>
+</div>
+<div>
+    <a href="{{url}}">
+    <button class="button-1" style="margin: 280px 0px 0px 20px;"  >Regresar</button> </a>
+</div>
+</div>
+
+
+
+<!-- <div>{{id}}</div>
+<div>{{encript}}</div> -->

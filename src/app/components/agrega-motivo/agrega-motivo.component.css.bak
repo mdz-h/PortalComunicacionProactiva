@@ -1,0 +1,35 @@
+.azulOxxo{
+    color:#0f3b64;
+}
+.div-1{
+    width: 1024px;
+    height: 68px;
+    background-color:#E4EAEC;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+  .div-2{
+    width: 1024px;
+    height: 548px;
+    background-color:#FCFFFE;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+  .div-3{
+    width: 1024px;
+    height: 5px;
+    background-color:#F6D300;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+  .div-4{
+    width: 1024px;
+    height: 108px;
+    background-color:#F5F7F8;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }

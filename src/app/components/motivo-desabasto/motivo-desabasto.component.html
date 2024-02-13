@@ -1,0 +1,87 @@
+<div class="div-1">
+  <div   class="div-5"  style="margin-left: 400px;margin-top: 18px; position: absolute;">
+    <p style="color:white">1</p>
+  
+  </div>
+  <div class="progress-bar" style="margin-left: 429px;margin-top: 28px; position: absolute;" >
+    
+      
+  </div>
+  <div   class="div-6"  style="margin-left: 600px;margin-top: 19px; position: absolute;">
+    <p-1 style="color:white;margin-top: 4px; position: absolute;">2</p-1>
+  
+  </div>
+</div>
+
+<div class="div-2">
+  &nbsp;
+  <br> <br>  <br>
+      <h1  class="row justify-content-center" class="bolded"  style=" margin-left: 240px; margin-right: 100px; margin-bottom: -60px; ">
+        <strong>¿Cuál&nbsp; es &nbsp;el &nbsp;motivo &nbsp;de &nbsp; desabasto&nbsp; en&nbsp; su&nbsp; tienda? </strong></h1>
+        
+  <form [formGroup]="form" (ngSubmit)="onSubmit()"  style="margin: auto; width: 800px; margin-top: -0px;">
+    <div class="container"  class="form-group" formControlName="fullname" style="padding: 100px 0 0 0;">
+      <label class="text-bold text-lg-center"   
+      style=" margin-left: 150px; margin-right: 100px; font-size: 16px; " >¿Qué ocurrió?</label>
+      <input type="text" max="50" class="form-control" 
+      style="width:500px; height: 60px; margin-left: 150px; margin-right: auto;"
+       placeholder="Nombre del evento" aria-label=""
+        aria-describedby=""  
+        formControlName="fullname"
+        [ngClass]="{ 'is-invalid': submitted && f['fullname'].errors }"
+         [(ngModel)]="_nombreEvento" ngModelOptions="{standalone: true}" >
+         <div  style="left: -1000px"  *ngIf="submitted && f['fullname'].errors" class="invalid-feedback">
+          <div style="position: absolute; margin-left: 150px;" *ngIf="f['fullname'].errors['required']">No se aceptan números y caracteres especiales</div>
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+      
+      <div class="col-6 justify-content-center" style="padding: 0 0 0px 10px;">
+        <label class="text-bold text-lg-center" style=" margin-left: 150px; margin-right: 100px; font-size: 16px; ">¿Cuándo comenzó?</label>
+        <input id="calendario" [(ngModel)]="_fechaInicio"  type="date" name="fechaInicio"
+         class="form-control" style="width:230px; height: 60px; margin-left: 150px; margin-right: auto;"
+          placeholder="Fecha incio"  formControlName="fechaInicioMotivo"
+        date-format="DD/MMMM/YYYY">
+      </div>
+      <div class="col-2 justify-content-center" style="padding: 0 0 10px 0;">
+        <label for="floatingInputValue" class="text-bold text-lg-center" 
+        style=" margin-left: 20px; margin-right: -150px; font-size: 16px; "  >¿Cuándo termino?</label>
+        <input type="date" class="second input" [(ngModel)]="_fechaFin" name="fechaFin"
+         style="width:230px; height: 60px; margin-left: 20px; margin-right: auto;" class="form-control" 
+         placeholder="Fecha final"  formControlName="fechaFinMotivo" date-format="DD/MMMM/YYYY"
+        >
+      </div>
+    </div>
+<div >
+    <label class="text-bold text-lg-center" style=" margin-left: 150px; margin-right: 100px; font-size: 16px;  ">Comentarios</label>
+    <textarea class="form-control" id="message-text"  style="width:500px; height: 150px; margin-left: 150px; margin-right: auto;"
+     name="_comentariosMotivo" [(ngModel)]="_comentariosMotivo"
+     formControlName="comentarios"
+     [ngClass]="{ 'is-invalid': submitted && f['comentarios'].errors }" >
+  
+    </textarea>
+    <div  style="left: -1000px"  *ngIf="submitted && f['comentarios'].errors" class="invalid-feedback">
+      <div style="position: absolute; margin-left: 150px;" *ngIf="f['comentarios'].errors['required']">No se aceptan caracteres especiales y más de 200 letras</div>
+ </div>
+    </div>
+    
+     <div  role="group" aria-label="Second group" class="form-group"   style=" margin-right: -200;">
+      <!-- <button type="button" class="button-2"   (click)="continuar()"    >CONTINUAR</button> -->
+       <!-- <button type="submit" class="button-2"   (click)="motivoDesabasto()"    >CONTINUAR</button> -->
+       <button type="submit" class="button-2"   >CONTINUAR</button>
+    </div>
+
+  </form>
+</div>
+<div class="div-3"></div>
+<div class="div-4">
+
+  <div class="btn-group me-5 col-1 offset-1" role="group" aria-label="First group" style="padding: 20px 0 10px 10px">
+    <button type="button" class="button-1" (click)="regresar()">REGRESAR</button>
+  </div>
+  
+</div>
+<!-- 
+<div>{{id}}</div>
+<div>{{encript}}</div> -->

@@ -1,0 +1,20 @@
+<div class="container">
+    <div>
+        <table class="col-12">
+            <thead>
+                <tr style="padding: 20%;" >
+                    <th class="col-10">{{tituloAviso}}</th>
+                    <th class="col-2">{{fechaAviso}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <div style="padding: 5%;">
+                    <tr class="row">
+                        <td class="col-12">{{descripcionAviso}}</td>
+                    </tr>
+                    
+                </div>
+            </tbody>
+        </table>
+    </div>
+</div>

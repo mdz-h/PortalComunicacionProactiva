@@ -1,0 +1,7 @@
+{
+  "/userapi": {
+  "target": "https://fcportaldes.femcom.net:8443/",
+  "secure": false
+  }
+  
+  }

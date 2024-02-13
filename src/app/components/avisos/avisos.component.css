@@ -1,0 +1,127 @@
+.leerMsg{
+  display: none;
+}
+.azulOxxo{
+  color: #0F3B64 !important;
+}
+.leerMsg2{
+  display: none;
+}
+
+.envioOk{
+  background-color: #8ef0a1;
+  color: green;
+  opacity: .75;
+}
+
+.boton{
+  border-color:darkgray;
+}
+.rojoOxxo{
+  background-color: #C40D15;
+  height: 70px;
+  width: 100%;
+  color: white;
+}
+.blanco{
+  color: white;
+  margin: 0 0 0 10px;
+}
+.errorAvisosStilo{
+  margin: 30px 0 0 200px;
+  padding: 50px;
+  left: -100px;
+}
+textarea {
+  resize: none;
+}
+
+.encabezadoOxxo{
+  background-color: #C40D15;
+  height: 40px;
+  width: auto;
+  color: white;
+}
+.button-2 {
+  background-color:#0C922F;
+  border-radius: 5px;
+  font-weight: 500;
+  border: 0px;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  margin-right: 10px;
+  margin-left: 850px;
+  margin-top: 20px;
+  padding: 20px 40px;
+}
+.button-3 {
+  background-color:#ffffff;
+   border-radius: 5px;
+  font-weight: 500;
+  border: 3px solid #E4EAEC;
+  color: black;
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 5px;
+  margin-left: 520px;
+  margin-top: -60px;
+  padding: 5px 20px;
+}
+.button-1 {
+  background-color:#DB0000;
+  border-radius: 5px;
+  border: 0px;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  margin-right: 10px;
+  margin-left:-880px;
+  margin-top: -50px;
+  padding: 20px 40px;
+}
+.div-1{
+  width: 1024px;
+  height: 68px;
+  background-color:#E4EAEC;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+.div-2{
+  width: 1024px;
+  height: 548px;
+  background-color:#FCFFFE;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+.div-3{
+  width: 1024px;
+  height: 5px;
+  background-color:#F6D300;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+.div-4{
+  width: 1024px;
+  height: 108px;
+  background-color:#F5F7F8;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+.tabla-m:hover{
+  background-color: #F6D300;
+}
+.fallido{
+  background-color: #C40D15;
+}
+.exito{
+  background-color: green;
+}
+.mensajeNoLeido{
+  background-color:rgb(245, 245, 245);
+}

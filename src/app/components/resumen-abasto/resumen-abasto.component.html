@@ -1,0 +1,71 @@
+<div class="div-1">
+
+    <div   class="div-6"  style="margin-left: 410px;margin-top: 12px; position: absolute;">
+        <p style="color:white;position: absolute;margin-top: 4px;">1</p>
+      
+      </div>
+      <div class="progress-bar" style="margin-left: 429px;margin-top: 22px; position: absolute;" >
+         
+      </div>
+      <div   class="div-5"  style="margin-left: 600px;margin-top: 10px; position: absolute;">
+        <p-1 style="color:white;margin-top: 4px; position: absolute; ">2</p-1>
+      
+      </div>
+
+      <div style="margin-top: 40px;margin-left: 440px; position: absolute;" >
+    <h2 class="text-center " style="color:#9b9b9b;">Solicitud enviada</h2>
+</div>
+</div>
+
+
+
+
+<div class="div-2">
+    <div class="text-center" style="padding: 25px 0px;">
+        <h1> <b> Resumen&nbsp; de &nbsp;artículos&nbsp; enviados</b> </h1>
+    </div>
+    <div>
+        <div style="width: 1330PX;">
+            <table class="table table-responsive table-bordered" style="width: 980px; margin-left: 20px;">
+                <thead>
+                    <tr class="color-oxxo">
+                        <th class="letra-clara">Motivo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="">
+                        <td class="">{{_idNombreEvento}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-responsive" style="height: 300px; overflow-y: auto; overflow-x:hidden; padding: 15px; ">
+            <table class="table table-responsive" style="width: 980px; margin-left: 5px;">
+                <thead>
+                    <tr class="color-oxxo">
+                        <th class="letra-clara col-10">Descripción</th>
+                        <th class="letra-clara col-2">Unidades necesarias</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="" *ngFor="let item of data">
+
+                        <td class="col-10">{{item.descripcion}}</td>
+                        <td class="col-2">{{item.cantidad}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+<div class="div-4">
+    <button class="btn-cuadrado " (click)="home()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house"
+            viewBox="0 0 16 16">
+            <path
+                d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z" />
+        </svg>
+    </button>
+    <p class="text-center" style="margin-left: 900px;">Home</p>
+</div>

@@ -1,0 +1,130 @@
+.color-oxxo{
+  background-color: #DB0000 !important;
+}
+.letra-clara{
+  color:white !important;
+}
+.btn-cuadrado{
+  width: 100px;
+  height: 100px;
+  background-color:#dfdddd;
+  border: #8d8989;
+  border-width: 5px;
+  border-radius: 3px;
+  margin-right: -10px;
+  margin-top: -30px;
+  margin-left: 900px;
+}
+td, th{
+  white-space:nowrap;
+}
+.div-1{
+  width: 1024px;
+  height: 68px;
+  background-color:#E4EAEC;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+.div-2{
+  width: 1024px;
+  height: 548px;
+  background-color:#FCFFFE;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+.div-3{
+  width: 1024px;
+  height: 5px;
+  background-color:#F6D300;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+.div-4{
+  width: 1024px;
+  height: 108px;
+  background-color:#FCFFFE;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+.div-5{
+  border: 1px solid #9b9b9b;
+  border-radius: 15px;
+  width: 30px;
+  height: 30px;
+  background-color:#9b9b9b;
+  align-items: center;
+    justify-content: center;
+    margin-left: 400px;
+    margin-right: 200px;
+     
+  
+}
+
+div > p {
+  margin-top: 11px;
+  text-align: center;
+  vertical-align: middle;
+  margin-bottom: 20px;
+  font-weight: bold;
+  
+  
+  margin-left: 8px;
+  margin-top: 5px;
+
+  
+}
+div > p-1 {
+  margin-top: 11px;
+  text-align: center;
+  vertical-align: middle;
+  margin-bottom: 20px;
+  font-weight: bold;
+  
+  
+  margin-left: 10px;
+  
+}
+.div-6{
+  border: 1px solid #9b9b9b;
+  border-radius: 13px;
+  width: 26px;
+  height: 26px;
+  background-color:#9b9b9b;
+  align-items: center;
+    justify-content: center;
+    margin-left: 0px;
+}
+
+.progress-bar{
+  background: #9b9b9b;
+  width: 180px;
+  height: 10px;
+  border-radius: -15px;
+  margin-left: auto;
+   margin-right:auto;
+}
+  .progress-bar div{
+    height: 10px;
+    border-radius: 5px;
+    width: 5%;
+   
+    
+  }
+
+  .progress-bar div span{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background: #9b9b9b;
+    float: right;
+    margin-top: -15px;
+    margin-right: -20px;
+    color: #9b9b9b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

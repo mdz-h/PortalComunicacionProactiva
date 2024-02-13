@@ -1,0 +1,66 @@
+<div class="div-1">
+
+    <div   class="div-6"  style="margin-left: 410px;margin-top: 12px; position: absolute;">
+        <p style="color:white;position: absolute;margin-top: 4px;">1</p>
+      
+      </div>
+      <div class="progress-bar" style="margin-left: 429px;margin-top: 22px; position: absolute;" >
+         
+      </div>
+      <div   class="div-5"  style="margin-left: 600px;margin-top: 10px; position: absolute;">
+        <p-1 style="color:white;margin-top: 4px; position: absolute; ">2</p-1>
+      
+      </div>
+
+      <div style="margin-top: 40px;margin-left: 380px; position: absolute;" >
+    <h2 class="text-center " style="color:#9b9b9b;">Paso 2. Capturar de Articulos</h2>
+</div>
+</div>
+<form>
+    <div class="div-2">
+        <div class="container" style="padding: 100px 0 0 0;">
+            <label class="text-bold text-lg-center" style="margin-left: 10px ;font-size: 16px;">Captura el código del artículo:</label>
+
+            <input style="width: 980px; height: 50px; margin-left: 10px;" type="keyup.enter" class="form-control"
+                name="_nombreEvento" [(ngModel)]="_nombreEvento" (keyup.enter)="agregar()">
+        </div>
+
+        <div class="table-responsive" style="height: 300px; overflow-y: auto; overflow-x:hidden; padding: 15px; ">
+            <table class="tabla-productos" id="rwd-table-id" class="table table-striped table-bordered"
+                style="margin-left: 10px; margin-right: 15px; width: 960px">
+                <thead>
+                    <tr class="row" id="columna1" style=" background-color:#DB0000; font-weight: 500; color: white;">
+                        <th class="col-12">
+                            <h5 style="font-size: 16px;">ARTICULOS</h5>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="item row table-bordered" *ngFor="let productos of dataList;  let in=index ">
+                        <th class="col-10" class="descripcion" style="padding: 1%;">
+                            {{productos.descripcion}} 
+                            <div style="width:68px; margin-left: 880px; margin-top: -20px;">
+                            <input  style="width:88px; margin-right: -500px" class="second input"  type="number" min="0" max="9999" value="1" 
+                            [(ngModel)]="words2[in].cantidad" name="name{{in}}" class="form-control" #name="ngModel" required />
+                       
+                        </div>
+                    </tr>
+
+                </tbody>
+
+
+            </table>
+        </div>
+        <div class="div-3"></div>
+        <div class="div-4">
+
+            <div class="btn-group me-5 col-1 offset-1" role="group" aria-label="First group">
+                <button type="button" class="button-1" (click)="regresar()">REGRESAR</button>
+            </div>
+            <div class="btn-group me-5 col-1 " role="group" aria-label="Second group">
+                <button type="button" class="button-2" (click)="add()">ACEPTAR</button>
+                <!-- <button type="button" class="button-2" (click)="aceptar()"  >ACEPTAR</button>  -->
+            </div>
+        </div>
+    </div>
+</form>

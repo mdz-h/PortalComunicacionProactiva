@@ -1,0 +1,20 @@
+<div class="col-12 table-responsive list-group"
+    style="height:400px; overflow-y: auto; overflow-x:hidden; background-color: white;">
+    <div class="col-12 vigenciaMensaje fw-bold text-center" *ngIf="fechaInicioVig != 'Sin Vigencia'">
+        Vigencia del {{fechaInicioVig}} al {{fechaFinVig}}</div>
+    <table class="table table-borderless">
+        <thead>
+            <tr class="encabezadoMensaje">
+                <th class="col-8 align-middle espacioMensaje">{{tituloAviso}}</th>
+                <th class="col-4 align-middle espacioMensaje">{{fechaAviso | date : "dd/MM/YYYY hh:mm:ss aa"}}</th>
+            </tr>
+        </thead>
+    </table>
+    <table class="table table-borderless">
+        <tbody>
+            <tr>
+                <td scope="row" class="espacioMensaje col-12">{{descripcionAviso}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

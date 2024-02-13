@@ -1,0 +1,401 @@
+<div class="div-1">
+
+    <div class="container-fluid" class="bolded" style="padding: 10px 10px;">
+        <h1 class="text-center"><b>Avisos</b></h1>
+    </div>
+</div>
+
+
+<div class="div-2">
+    <div class="input-group row">
+
+        <div class="input-group">
+            <input type="text" class="form-control" [(ngModel)]="filterpost"
+                placeholder="Buscar asunto"
+                style="width:400px; height: 55px; margin-left: 0px; margin-right: 500px; margin-top: 50px;"
+                aria-label="Recipient's username" aria-describedby="basic-addon2" label="aa">
+
+
+                <!-- <app-search (search)="handleSearch($event)"></app-search> -->
+
+            <div class="modal-footer">
+                <button type="button" class="button-3" data-bs-toggle="modal" data-bs-target="#modalBusquedaAvanzada"
+                    data-bs-whatever="@mdo" (click)="resetBusquedaAvanzada()"><b> Búsqueda avanzada </b></button>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-2 border table-responsive"
+        style="padding: 5px; height:400px; width: 250px; overflow-y: auto; overflow-x:hidden; background-color: white; margin-right: 10px; margin-left: 760px;">
+        <table class="table">
+            <thead>
+                <tr class="text-center">
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th style="background-color:#DB0000; color: white; font-size: 16px;">
+                        <label (click)="avisos()" for="a11y-issue-1">
+                            BANDEJA DE ENTRADA</label>
+                    </th>
+                </tr>
+                <tr>
+                    <td style="font-size: 16px; height: 50px ;" (click)="avisos()"><b> Recibidos </b></td>
+                </tr>
+                <tr>
+                    <td style="font-size: 16px;" (click)="noLeidos()"> <b> No leídos </b></td>
+                </tr>
+                
+                <tr>
+                    <td style="font-size: 16px; height: 50px ;" (click)="caducados()"><b>Caducados </b></td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <table class="table">
+            <thead>
+                <tr class="" style="background-color:#DB0000; color: white; font-size: 16px; ">
+                    <th class="">CATEGORÍAS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="">
+                    <td style="font-size: 16px; height: 50px ;" (click)="faltanteProlongado()">
+                        <b> Faltante prolongado </b>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: 16px;height: 50px ;" (click)="pmo()"> <b> Cambios en PMO </b></td>
+                </tr>
+            </tbody>
+        </table>
+     
+    </div>
+    <div class="col-10 border table-responsive list-group"
+        style="height:400px; width: 750px; margin-top: -380px;  overflow-y: auto; overflow-x:hidden; background-color: white;">
+        <table class="table text-star">
+           
+            <thead>
+                <tr class="">
+                    <th class="col-9">Mensaje <div style="margin-left: 600px; margin-top: -20px;">Fecha</div>
+                    </th>
+                </tr>
+            </thead>
+            <div class="errorAvisos"  >
+            </div >
+            
+         
+            <!-- al momento de usar el hover se ve una parte q no se pinta que se pinta del color  -->
+            <tbody class="tabla-m"
+            *ngFor="let item of posts |  filter: filterpost | filter:filtroCategoria | busquedaAvanzada: _filterCalendario2 "
+                [ngClass]="{'faltante': faltanteProlongado}">
+                <input class="form-check-input me-1 mycheck" type="checkbox"
+                    [ngClass]="{'leerMsg': !mostrar}" style="margin: 20px; visibility: hidden;">
+                <tr [ngClass]="{'leerMsg': !mostrar}" class="list-group-item-action" id="{{item.idAviso}}"
+                    (click)="cambiarFlag(item.idAviso)" aria-current="true" (click)="cambiarEstatusLeido(item.idAviso)">
+                    <td>
+                        <div [ngClass]="{'leerMsg': !mostrar}" style="margin: -60px 0 0 25px ;" *ngIf="item.estatus">
+                            <label style="padding: 0 0 0 2%;" for="a11y-issue-1"> {{item.tituloAviso}} <div
+                                    style="margin-left: 450px; margin-top: -10px;">{{item.fechaAviso | date :
+                                    "dd/MM/YYYY hh:mm:ss aa"}}</div>
+                                    <span *ngIf="item.fechaInicioVigencia != 'Sin Vigencia'"
+                                    class="">{{item.fechaInicioVigencia}} - {{item.fechaFinVigencia}}</span>
+                                {{item.descripcionAviso}}
+                            </label>
+                        </div>
+                        <div [ngClass]="{'leerMsg': !mostrar}" style="margin: -60px 0 0 25px ;" *ngIf="item.estatus == 0">
+                            <label style="padding: 0 0 0 2%;" for="a11y-issue-1"> <b>{{item.tituloAviso}} </b> <div
+                                    style="margin-left: 450px; margin-top: -10px;"><b>{{item.fechaAviso | date :
+                                    "dd/MM/YYYY hh:mm:ss aa"}}</b></div>
+                                    <span *ngIf="item.fechaInicioVigencia != 'Sin Vigencia'"
+                                    class=""><b>{{item.fechaInicioVigencia}} - {{item.fechaFinVigencia}}</b></span>
+                                <br><b>{{item.descripcionAviso}}</b>
+                            </label>
+                        </div>
+                    </td>
+
+                </tr>
+                
+            </tbody>
+            <app-mensaje [ngClass]="{'leerMsg2': mostrar2}" [idAviso]="_idAvisoLeer" [fromId]="_fromIdLeer"
+                [toId]="_toIdLeer" [tituloAviso]="_tituloAvisoLeer" [descripcionAviso]="_descripcionAvisoLeer"
+                [prioridadAviso]="_prioridadAvisoLeer" [tipoAviso]="_tipoAvisoLeer"
+                [fechaAviso]="_fechaAvisoLeer" [fechaInicioVig]="_fechaInicioVigLeer" [fechaFinVig]="_fechaFinVigLeer"></app-mensaje>
+         </table>
+    </div>
+</div>
+
+<div class="div-3"></div>
+<div class="div-4">
+    <div class="modal-footer">
+        <!-- Revisar el por q no se puede redactar en una sola linea la leyenda del button -->
+        <div class="modal-footer">
+            <button type="button" class="button-2" data-bs-toggle="modal" data-bs-target="#redactarAviso"
+                data-bs-whatever="@mdo" (click)="disebledValidation()"> REDACTAR AVISO </button>
+        </div>
+    
+        <!-- revisar el por que no redirecciona a Home  -->
+    <div class="btn-group me-5 col-1 offset-1" role="group" aria-label="Second group" style="margin-top: -40px;">
+        <a href={{url}}> 
+             <button class="button-1" >REGRESAR</button></a>
+        
+    </div>
+
+</div>
+<!--  #####################  Modal redactar aviso    ######################  -->
+<div class="modal fade modal-lg" id="redactarAviso" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            
+            <form [formGroup]="formularioEnvioAviso" (ngSubmit)="submit()" class="form-floating">
+                
+                <div class="modal-body" style="padding: 5%;">
+                    <div class="text-center">
+                        <svg style="color:#0155C1" xmlns="http://www.w3.org/2000/svg" width="26" height="26"
+                          fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                          <path
+                            d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+                        </svg>
+                      </div>
+                      <div class="container-fluid" style="background-color:#ffd562; width: 100%; height: 5px;"
+                        data-bs-whatever="@mdo">
+                      </div>
+                      <div class="text-center" style="margin: 10px;">
+                        <h4> <b> REDACTAR AVISO</b></h4>
+                    </div>
+                    <div class="container-fluid">
+
+                        <div class="row" style="padding: 5% 0;">
+                            <div class="col-2">Para:</div>
+                            <div class="col-4">
+                                <p><input  type="radio" id="region" name="rdbPara" value="0" (change)="changePara($event)"> Region</p>
+                                <p><input id="cedis" type="radio" id="cedis" name="rdbPara" value="1" (change)="changePara($event)"> CEDIS</p>
+                            </div>
+                            <div class="col-6">
+                                <select *ngIf="(seleccionTienda == 0)" formControlName="paraResponsable" name="paraResponsable" [(ngModel)]="_toId" class="form-select" aria-label=".form-select-lg example" [(ngModel)]="opcionSeleccionadoPlaza" (change)="capturar()">
+                                    <option selected  value="{{crPlaza}}">{{crPlaza}}</option>
+                                </select>
+                                <select *ngIf="(seleccionTienda == 1)" formControlName="paraJefe" name="paraJefe" [(ngModel)]="_toIdJefe" class="form-select" aria-label=".form-select-lg example" [(ngModel)]="opcionSeleccionadoPlaza" (change)="capturar()">
+                                    <option  selected  value="{{regionTienda.IDCEDIS}}">{{regionTienda.IDCEDIS}}</option>
+                                   
+                                  <!-- <option selected *ngFor="let jef of ArrJefes" value="{{jef.userId}}">{{jef.keyValue}}</option> -->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2">Asunto:</div>
+                            <div class="col-6">
+                                <input type="text" class="form-control" placeholder="Asunto" aria-label=""
+                                    formControlName="asunto" required aria-describedby="" name="_tituloAviso"
+                                    [(ngModel)]="_tituloAviso">
+                                <span *ngIf="this.formularioEnvioAviso.get('asunto')?.errors?.['required']">
+                                    (El campo no puede quedar vacío)
+                                </span>
+                                <span *ngIf="this.formularioEnvioAviso.get('asunto')?.errors?.['minlength']">
+                                    (Debe tener como mínimo 5 caracteres)
+                                </span>
+                            </div>
+                            <div class="col-2">Prioridad:</div>
+                            <div class="col-2">
+                                <select class="form-select" aria-label=".form-select-lg example"
+                                    formControlName="prioridad" required [(ngModel)]="opcionSeleccionado"
+                                    (change)="capturar()">
+                                    <option selected>-</option>
+                                    <option *ngFor="let dato of datos">{{dato}}</option>
+                                </select>
+                                <span *ngIf="this.formularioEnvioAviso.get('prioridad')?.errors?.['required']">
+                                    (El campo no puede quedar vacío)
+                                </span>
+                                <span *ngIf="this.formularioEnvioAviso.get('prioridad')?.errors?.['minlength']">
+                                    (Debe tener como mínimo 1 caracter)
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row input-group">
+                            <div class="col-3">Vigencia:
+                                <label for="floatingInputValue" class="fs-6 fw-light">Avisos válidos<br> durante
+                                    un lapso<br> de tiempo.</label>
+                            </div>
+                            <div class="form-check form-switch col-1" style="margin: 27px 0 0 0">
+                                <input class="form-check-input" style="width: 50px; height: 20px;"
+                                    type="checkbox" id="flexSwitchCheckChecked" [(ngModel)]="activarCampo"
+                                    formControlName="activarCampo"
+                                    (click)="activarVigencia()">
+                            </div>
+                            <div class="col-4" *ngIf="activarCampo == false">
+                                <fieldset disabled>
+                                    <label for="floatingInputValue" class="fs-6"
+                                        style="margin: 0 0 0 20px;">Fecha en que inicia</label>
+                                    <input id="calendario" [(ngModel)]="_fechaInicioVigencia" type="date"
+                                        class="form-control" aria-label="fechaInicio" date-format="DD/MMMM/YYYY"
+                                        aria-describedby="addon-wrapping" formControlName="vigenciaFechaInicia"
+                                        style="margin: 0 0 0 20px;">
+                                </fieldset>
+                            </div>
+                            <div class="col-4" *ngIf="activarCampo == true">
+                                <label for="floatingInputValue" class="fs-6" style="margin: 0 0 0 20px;">Fecha
+                                    en que inicia</label>
+                                <input id="calendario" [(ngModel)]="_fechaInicioVigencia" type="date"
+                                    class="form-control" aria-label="fechaInicio" date-format="DD/MMMM/YYYY"
+                                    aria-describedby="addon-wrapping" formControlName="vigenciaFechaInicia"
+                                    style="margin: 0 0 0 20px;" required>
+                                <span *ngIf="this.formularioEnvioAviso.get('vigencia')?.errors?.['required']"
+                                    style="margin: 0 0 0 20px;">
+                                    (Selecciona una fecha)
+                                </span>
+                            </div>
+                            <div class="col-4" *ngIf="activarCampo == false">
+                                <fieldset disabled>
+                                    <label for="floatingInputValue" class="fs-6"
+                                        style="margin: 0 0 0 20px;">Fecha en que termina</label>
+                                    <input id="calendario" [(ngModel)]="_fechaFinVigencia" type="date"
+                                        class="form-control" aria-label="fechaInicio" date-format="DD/MMMM/YYYY"
+                                        aria-describedby="addon-wrapping" formControlName="vigenciaFechaTermina"
+                                        style="margin: 0 0 0 20px;">
+                                </fieldset>
+                            </div>
+                            <div class="col-4" *ngIf="activarCampo == true">
+                                <label for="floatingInputValue" class="fs-6" style="margin: 0 0 0 20px;">Fecha
+                                    en que termina</label>
+                                <input id="calendario" [(ngModel)]="_fechaFinVigencia" type="date"
+                                    class="form-control" aria-label="fechaFin" date-format="DD/MMMM/YYYY"
+                                    aria-describedby="addon-wrapping" formControlName="vigenciaFechaTermina"
+                                    style="margin: 0 0 0 20px;" required>
+                                <span *ngIf="this.formularioEnvioAviso.get('vigencia')?.errors?.['required']"
+                                    style="margin: 0 0 0 20px;">
+                                    (Selecciona una fecha)
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row" style="padding: 0 0 5% 0;">
+                            <label for="message-text" class="col-form-label">Comentarios:</label>
+                            <textarea class="form-control" id="message-text" rows="4" name="_descripcionAviso"
+                                formControlName="comentarios" required [(ngModel)]="_descripcionAviso"></textarea>
+                            <span *ngIf="this.formularioEnvioAviso.get('comentarios')?.errors?.['required']">
+                                (El campo no puede quedar vacío)
+                            </span>
+                            <span *ngIf="this.formularioEnvioAviso.get('comentarios')?.errors?.['minlength']">
+                                (Debe tener como mínimo 5 caracteres)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div>{{resultado}}</div>
+            <div class="modal-footer">
+                <button type="button" class="btn fw-bold azulOxxo" data-bs-dismiss="modal"
+                    (click)="descartar()" (click)="reset($event)">Descartar</button>
+                <button data-bs-toggle="modal" data-bs-target="#modalEnvio" class="btn btn-outline-danger fw-bold"   [disabled]="_tituloAviso== ''|| _descripcionAviso== '' || opcionSeleccionado == ''"
+                    (click)="enviarAviso()">Enviar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Modal busqueda avanzada-->
+<div class="modal fade" id="modalBusquedaAvanzada" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="text-center">
+                <svg style="color:#0155C1" xmlns="http://www.w3.org/2000/svg" width="26" height="26"
+                  fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+                </svg>
+              </div>
+              <div class="container-fluid" style="background-color:#ffd562; width: 100%; height: 5px;"
+                data-bs-whatever="@mdo">
+              </div>
+              <div class="text-center" style="margin: 10px;">
+                <h4>Búsqueda avanzada</h4>
+            </div>
+            <!-- <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div> -->
+            <div class="modal-body" style="padding: 5%;">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-2">Asunto:</div>
+                        <div class="col-9 offset-1">
+                            <input [(ngModel)]="asuntoBA" class="form-control" id="message-text">
+                        </div>
+                    </div>
+                    <div class="row" style="padding: 5% 0;">
+                        <div class="col-4">Rango de fechas</div>
+                        <div class="col-3">
+                            <select class="form-select" [(ngModel)]="filterFecha" >
+                                <option>1 semana</option>
+                                <option>2 semanas</option>
+                                <option>1 mes</option>
+                            </select>
+                        </div>
+                        <div class="flex-nowrap col-5">
+                            <input id="calendario" [(ngModel)]="filterCalendario"  type="date"
+                                class="form-control" aria-label="fechaCalendario" date-format="DD/MMMM/YYYY"
+                                aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+                    <div class="row" style="padding: 5% 0;">
+                        <div class="col-2">Artículo:</div>
+                        <div class="col-9 offset-1">
+                            <input [(ngModel)]="articuloBA" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">Categoría:</div>
+                        <div class="col-9 offset-1">
+                            <input [(ngModel)]="categoriaBA" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row" style="padding: 5% 0;">
+                        <div class="col-2">Subgrupo:</div>
+                        <div class="col-9 offset-1">
+                            <input [(ngModel)]="subgrupoBA" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">CEDIS:</div>
+                        <div class="col-9 offset-1">
+                            <input [(ngModel)]="cedisBA" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn fw-bold azulOxxo" data-bs-dismiss="modal" (click)="descartarBA()">Descartar</button>
+                        <button *ngIf="asuntoBA || filterFecha || filterCalendario != ''" type="button" class="btn btn-outline-danger fw-bold" data-bs-dismiss="modal"
+                             (click)="busquedaRango()" (click)="buscar()" (click)="busquedaAvanzada( articuloBA || categoriaBA || subgrupoBA || cedisBA )">Buscar</button>
+                        <button *ngElse="asuntoBA || filterFecha || filterCalendario == ''" type="button" class="btn btn-outline-danger fw-bold" data-bs-dismiss="modal"
+                            invisible>Buscar</button>
+                            <div style="color:#e70020" >Por favor llene algunos de los campos solicitados</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal envío-->
+<div class="modal fade" id="modalEnvio" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    style="padding: 20%;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+                    <path
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                </symbol>
+            </svg>
+            <div class="d-flex align-items-center modal-body mensaje" role="alert">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor"
+                    class="bi bi-info-circle-fill" viewBox="0 0 16 16" style="margin: 10px 40px 10px 10px;">
+                    <path
+                        d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+                </svg>
+                <div class="col-9">
+                    <h5>{{mensajeExito}}</h5>
+                </div>
+                <button type="button" class="btn-close col-1" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+</div>

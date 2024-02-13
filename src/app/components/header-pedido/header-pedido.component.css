@@ -1,0 +1,65 @@
+.color-oxxo{
+    background-color: #AD000B !important;
+}
+.letra-clara{
+    color:white !important;
+}
+.btn-oxxo{
+    background-color: gainsboro !important;
+    text-decoration: none; 
+    color: black;
+}
+.caja::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 40px;
+}
+.table-striped{
+    background-color: #ffd562;
+}
+.btn-cuadrado{
+    width: 100px;
+    height: 100px;
+    background-color:#dfdddd;
+    border: #8d8989;
+    border-width: 5px;
+    border-radius: 3px;
+    margin-left: -40px;
+}
+td, th{
+    white-space:nowrap;
+}
+.div-1{
+    width: 1024px;
+    height: 68px;
+    background-color:#E4EAEC;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+  .div-2{
+    width: 1024px;
+    height: 548px;
+    background-color:#FCFFFE;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+  .div-3{
+    width: 1024px;
+    height: 5px;
+    background-color:#F6D300;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+  .div-4{
+    width: 1024px;
+    height: 108px;
+    background-color:#FCFFFE;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+  .tabla-m:hover{
+    background-color: #F6D300;
+  }
